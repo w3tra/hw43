@@ -5,4 +5,20 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
+
+5.times do
+  Place.create(title: Faker::Company.name, description: Faker::Company.bs)
+end
+
+prices = [250, 350, 15, 8, 90, 122, 900]
+
+Place.all.each do |place|
+  3.times do
+    place.items.create(title: Faker::Beer.name, price: prices.sample)
+  end
+end
+n = 0
+5.times do
+  n += 1
+  User.create(password: "qweqwe", email: "mail#{n}@mail.ru")
+end
