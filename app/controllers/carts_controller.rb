@@ -7,11 +7,9 @@ class CartsController < ApplicationController
 
   def destroy
     @cart = Cart.find(params[:id])
-    if @cart.destroy
-      redirect_back
-    else
-      flash[:notice] = "#{@cart.errors.full_messages}"
-    end
+    @cart.destroy
+    redirect_to :back
+
   end
 
   private

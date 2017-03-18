@@ -5,9 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+images_path = "#{Rails.root}/app/assets/images/"
+photos = [(images_path+"photo1.jpeg"), (images_path+"photo2.jpg"), (images_path+"photo3.jpeg")]
 5.times do
-  Place.create(title: Faker::Company.name, description: Faker::Company.bs)
+  Place.create(title: Faker::Company.name, description: Faker::Company.bs, image: File.new(photos.sample))
 end
 
 prices = [250, 350, 15, 8, 90, 122, 900]

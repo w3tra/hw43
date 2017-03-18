@@ -1,3 +1,7 @@
-<% @places.each do |place| %>
-  <%= link_to place.title, place_path(place) %> <br>
-<% end %>
+<div class="container">
+    <div class="row">
+        <ul class="thumbnails">
+            <%= render @places%>
+        </ul>
+    </div>
+</div>
