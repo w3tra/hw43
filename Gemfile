@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.2'
 gem 'devise'
 gem 'activeadmin', github: 'gregbell/active_admin'
+gem "active_material", github: "vigetlabs/active_material"
 gem 'cancancan'
 gem 'simple_form'
 gem 'bootstrap-sass'

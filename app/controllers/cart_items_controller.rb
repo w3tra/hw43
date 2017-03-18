@@ -8,9 +8,14 @@ class CartItemsController < ApplicationController
   def destroy
     CartItem.destroy(params[:id])
   end
+
+  def update
+    @cart_item = CartItem.find(params[:id])
+    @cart_item.update(cart_item_params)
+  end
   private
 
   def cart_item_params
-    params.require(:cart_item).permit(:title, :price, :place_id, :cart_id, :user_id)
+    params.require(:cart_item).permit(:title, :price, :place_id, :cart_id, :user_id, :amount)
   end
 end
