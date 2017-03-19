@@ -7,14 +7,25 @@ class CartItemsController < ApplicationController
   end
 
   def destroy
-    CartItem.destroy(params[:id])
-    redirect_to :back
+    @cart_item = CartItem.destroy(params[:id])
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
   end
 
   def update
     @cart_item = CartItem.find(params[:id])
-    @cart_item.update(cart_item_params)
+    if @cart_item.update(cart_item_params)
+      respond_to do |format|
+        format.html { redirect_to :back }
+        format.js
+      end
+    else
+      flash[:notice] = "Something wrong"
+    end
   end
+  
   private
 
   def cart_item_params
