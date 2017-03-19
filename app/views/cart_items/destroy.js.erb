@@ -1,1 +1,2 @@
 $("#<%= @cart_item.id %>").fadeOut();
+$("#cart_total").html('<p id="cart_total">Cart total: <%= @cart_item.cart.total %>$ </p>');
