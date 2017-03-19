@@ -3,6 +3,9 @@ class Cart < ApplicationRecord
   belongs_to :place
   has_many :cart_items, dependent: :destroy
 
+  validates :place_id, presence: true 
+  validates :user_id, presence: true
+
   def total
   	unless self.cart_items.nil?
   		cart_total = 0
