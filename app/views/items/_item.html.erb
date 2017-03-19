@@ -1,0 +1,23 @@
+<div class="col-md-4">
+    <div class="thumbnail">
+        <img src="http://placehold.it/320x200" alt="ALT NAME" class="img-responsive" />
+        <div class="caption">
+           <h4><%= item.title[0..25] %></h4>
+           <p><%= item.description %></p>
+           <p class="text-info"><%= item.price %>$</p>
+           <% if user_signed_in? %>
+             <%= simple_form_for @cart_item do |f| %>
+                <%= f.hidden_field :title, value: item.title %>
+                <%= f.hidden_field :price, value: item.price %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :place_id, value: item.place.id %>
+                <%= f.hidden_field :cart_id, value: @place_cart.id %>
+                <%= f.input :amount, input_html: { size: 20 } %>
+                <p align="center">
+                    <%= f.submit 'Add to cart', class: "btn btn-success btn-block" %>
+                </p>
+             <% end %>
+           <% end %>
+       </div>
+   </div>
+</div>

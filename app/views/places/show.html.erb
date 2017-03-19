@@ -1,39 +1,15 @@
 <h2><%= @place.title %></h2>
-<% @place.items.each do |item| %>
-    <%= item.title %>
-    <%= item.price %>$
-    <% if user_signed_in? %>
-        <%= simple_form_for @cart_item do |f| %>
-            <%= f.hidden_field :title, value: item.title %>
-            <%= f.hidden_field :price, value: item.price %>
-            <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :place_id, value: item.place.id %>
-            <%= f.hidden_field :cart_id, value: @place_cart.id %>
-            <%= f.input :amount, input_html: { size: 20 } %>
-            <%= f.submit 'order', class: "btn btn-default" %>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-11">
+            <ul class="thumbnails">
+                <%= render @place.items %>
+            </ul>
+        </div>
+        <% if user_signed_in? %>
+            <%= render 'carts/cart' %>
         <% end %>
-    <% end %>
-    <br>
-<% end %>
+    </div>
+</div>
 
-<% if user_signed_in? %>
-    =============== CART =============
-    <br>
-    <%= @place_cart.id %>
-    <%= @place_cart.place.title %>
-    <%= @place_cart.user.email %>
-    <br>
-    <% @place_cart.cart_items.each do |item| %>
-        <%= item.title %> ||
-        <%= item.price %>$ x
-        <%= item.amount %> ||
-        <%= item.total %>$
-        <%= simple_form_for item, method: :put do |f| %>
-            <%= f.input :amount, input_html: { size: 20 } %>
-            <%= f.submit %>
-        <% end %>
-        <%= link_to 'delete', cart_item_path(item), method: 'delete' %>
-        <br>
-    <% end %>
-    <%= link_to 'order', cart_path(@place_cart), method: 'delete' %>
-<% end %>

@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20170318064856) do
     t.decimal  "price"
     t.integer  "user_id"
     t.integer  "place_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
     t.integer  "cart_id"
-    t.integer  "amount"
+    t.integer  "amount",     default: 1
     t.index ["cart_id"], name: "index_cart_items_on_cart_id"
     t.index ["place_id"], name: "index_cart_items_on_place_id"
     t.index ["user_id"], name: "index_cart_items_on_user_id"

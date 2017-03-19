@@ -3,10 +3,12 @@ class CartItemsController < ApplicationController
 
   def create
     @cart_item = CartItem.create(cart_item_params)
+    redirect_to :back
   end
 
   def destroy
     CartItem.destroy(params[:id])
+    redirect_to :back
   end
 
   def update

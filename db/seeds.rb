@@ -15,7 +15,7 @@ prices = [250, 350, 15, 8, 90, 122, 900]
 
 Place.all.each do |place|
   3.times do
-    place.items.create(title: Faker::Beer.name, price: prices.sample)
+    place.items.create(title: Faker::Beer.name, price: prices.sample, description: Faker::Food.ingredient + ', ' + Faker::Food.ingredient)
   end
 end
 n = 0
