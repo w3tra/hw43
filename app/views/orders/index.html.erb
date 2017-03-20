@@ -1,8 +1,22 @@
-<% @orders.each do |order| %>
-	<b><%= order.id %></b>
-	<% order.order_items.each do |order_item| %>
-		<%= order_item.title %>
-		<%= order_item.amount %>
-		<%= order_item.price %>
+<table class="table">
+	<tr class="info">
+		<th>Place</th>
+		<th>Date</th>
+		<th>Count</th>
+		<th>Sum</th>
+		<th>More</th>
+	</tr>
+	<% @orders.each do |order| %>
+		<tr>
+			<td><%= order.place.title %></td>
+			<td><%= order.created_at.strftime("%Y-%m-%d") %></td>
+			<td><%= order.amount %></td>
+			<td><%= order.total %></td>
+			<td><%= link_to "More", order_path(order) %> </td>
+		</tr>
 	<% end %>
-<% end %>
+	<tr class="success">
+      <th colspan="4"><span class="pull-right">Total</span></th>
+      <th><%= current_user.orders_total %></th>
+    </tr>
+</table>

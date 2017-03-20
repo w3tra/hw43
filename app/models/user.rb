@@ -11,4 +11,11 @@ class User < ApplicationRecord
   	role.include? r.to_s
 	end
 	
+  def orders_total
+    total = 0
+    orders.each do |order|
+      total = order.total + total
+    end
+    total
+  end
 end
