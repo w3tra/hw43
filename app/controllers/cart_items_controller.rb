@@ -2,7 +2,7 @@ class CartItemsController < ApplicationController
   before_action :authenticate_user!
 
   def create
-    @cart_item = CartItem.create(cart_item_params)
+    @cart_item = CartItem.new(cart_item_params)
     if @cart_item.save
       redirect_to :back
     else

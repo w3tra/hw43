@@ -9,7 +9,7 @@ class CartsController < ApplicationController
     @cart = Cart.find(params[:id])
     if @cart.destroy
       redirect_to :back
-      flash[:notice] = "Order successfully created(No)"
+      flash[:notice] = "Cart deleted"
     else
       flash[:notice] = "Something wrong"
       redirect_to :back

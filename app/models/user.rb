@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :cart_items
   has_many :carts
+  has_many :orders, dependent: :destroy
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

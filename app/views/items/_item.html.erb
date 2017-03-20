@@ -12,7 +12,7 @@
                 <%= f.hidden_field :user_id, value: current_user.id %>
                 <%= f.hidden_field :place_id, value: item.place.id %>
                 <%= f.hidden_field :cart_id, value: @place_cart.id %>
-                <%= f.input :amount, input_html: { size: 20 } %>
+                <%= f.input :amount, input_html: { size: 20, min: '1', step: 1 } %>
                 <p align="center">
                     <%= f.submit 'Add to cart', class: "btn btn-success btn-block" %>
                 </p>

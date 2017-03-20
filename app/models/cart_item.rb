@@ -9,6 +9,7 @@ class CartItem < ApplicationRecord
   validates :title, 	 presence: true
   validates :price,    presence: true
   validates :amount,   presence: true
+  validates_numericality_of :amount, :greater_than_or_equal_to => 1
   def total
     price * amount
   end
