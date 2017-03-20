@@ -1,8 +1,9 @@
 <% if @place_cart.cart_items.any? %>
   <div class="col-md-1">
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-    Cart
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" id="cart_button">
+    Cart <span class="label label-info"><%= @place_cart.amount %></span><br>
+    <%= @place_cart.total %>$
     </button>
 
     <!-- Modal -->
@@ -16,7 +17,7 @@
           <div class="modal-body">
               <%= render @place_cart.cart_items %>
 
-              <p id="cart_total">Cart total: <%= @place_cart.total %></p>
+              <p id="cart_total">Cart total: <%= @place_cart.total %>$</p>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

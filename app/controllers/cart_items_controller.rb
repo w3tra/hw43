@@ -3,7 +3,12 @@ class CartItemsController < ApplicationController
 
   def create
     @cart_item = CartItem.create(cart_item_params)
-    redirect_to :back
+    if @cart_item.save
+      redirect_to :back
+    else
+      flash[:notice] = "Something wrong"
+      redirect_to :back
+    end
   end
 
   def destroy
@@ -23,6 +28,7 @@ class CartItemsController < ApplicationController
       end
     else
       flash[:notice] = "Something wrong"
+      redirect_to :back
     end
   end
   

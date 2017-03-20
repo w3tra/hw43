@@ -7,9 +7,13 @@ class CartsController < ApplicationController
 
   def destroy
     @cart = Cart.find(params[:id])
-    @cart.destroy
-    redirect_to :back
-    flash[:notice] = "Order successfully created(No)"
+    if @cart.destroy
+      redirect_to :back
+      flash[:notice] = "Order successfully created(No)"
+    else
+      flash[:notice] = "Something wrong"
+      redirect_to :back
+    end
   end
 
   private
