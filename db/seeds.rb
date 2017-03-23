@@ -5,6 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+test_admin_user = User.create!(email: "test@admin.com", password: "adminadmin", role: "admin")
 images_path = "#{Rails.root}/app/assets/images/"
 photos = [(images_path+"photo1.jpeg"), (images_path+"photo2.jpg"), (images_path+"photo3.jpeg")]
 5.times do

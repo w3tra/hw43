@@ -17,6 +17,16 @@ gem 'simple_form'
 gem 'bootstrap-sass'
 gem 'faker'
 gem 'paperclip'
+group :test do
+  gem 'cucumber-rails', require: false
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'rspec'
+  gem 'selenium-webdriver'
+  gem 'launchy'
+  gem "chromedriver-helper"
+end
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
