@@ -18,7 +18,7 @@ end
 
 When(/^заведение "([^"]*)" видно в списке заведений$/) do |title|
   visit('/admin/places')
-  page.has_content?(title)
+  find(:xpath, '//*[@id="place_6"]/td[4]/a')
 end
 
 When(/^отредактирует заведение "([^"]*)" с данными:$/) do |arg, table|
@@ -40,9 +40,9 @@ When(/^удалит заведение "([^"]*)"$/) do |title|
   visit('/admin/places')
   find(:xpath, '//*[@id="place_6"]/td[6]/div/a[3]').click
   accept_alert
-  save_and_open_page
 end
 
 When(/^заведение "([^"]*)" не видно в списке заведений$/) do |title|
   expect(page).not_to have_content(title)
+  expect(page).not_to have_xpath('//*[@id="place_6"]/td[6]/div/a[2]')
 end
