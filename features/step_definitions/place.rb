@@ -32,8 +32,8 @@ When(/^отредактирует заведение "([^"]*)" с данными
 end
 
 When(/^отредактированное заведение "([^"]*)" видно в списке заведений$/) do |title|
-  visit('admin/places')
-  page.has_content?(title)
+  visit('/admin/places')
+  find(:xpath, '//*[@id="place_6"]/td[4]/a')
 end
 
 When(/^удалит заведение "([^"]*)"$/) do |title|

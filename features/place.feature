@@ -14,8 +14,8 @@
     То заведение "Some place" видно в списке заведений
 
     Если отредактирует заведение "Some place" с данными:
-      | title             | description            |
-      | Some edited place | Some edited description|
+      | title             | description             |
+      | Some edited place | Some edited description |
     То отредактированное заведение "Some edited place" видно в списке заведений
 
     Если удалит заведение "Some edited place"
