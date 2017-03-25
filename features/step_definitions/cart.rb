@@ -39,3 +39,16 @@ When(/^удаленый товар перестанет отображаться
   visit('/places/1')
   expect(page).not_to have_xpath("//*[@id=#{@last_cart_item.id}]/div[1]/a")
 end
+
+When(/^нажмет на кнопку Order$/) do
+  find(:xpath, '//*[@id="cart_button"]').click
+  find(:xpath, '//*[@id="myModal"]/div/div/div[3]/button[3]/a').click
+end
+
+When(/^перейдет на страницу заказов$/) do
+  visit('/orders')
+end
+
+When(/^заказ отобразится на странице$/) do
+  find(:xpath, '/html/body/div/table/tbody/tr[2]/td[1]')
+end
