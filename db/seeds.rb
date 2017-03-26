@@ -8,6 +8,7 @@
 test_admin_user = User.create!(email: "test@admin.com", password: "adminadmin", role: "admin")
 images_path = "#{Rails.root}/app/assets/images/"
 photos = [(images_path+"photo1.jpeg"), (images_path+"photo2.jpg"), (images_path+"photo3.jpeg")]
+Place.create(title: 'test place', description: 'test desc')
 5.times do
   Place.create(title: Faker::Company.name, description: Faker::Company.bs, image: File.new(photos.sample))
 end
